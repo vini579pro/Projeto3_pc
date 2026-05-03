@@ -15,7 +15,6 @@ def menu():
 
     while True:
         try:
-            print("\n" + "="*50)
             print("1. Carregar catálogo")
             print("2. Listar jogos")
             print("3. Buscar jogo por nome")
@@ -35,7 +34,6 @@ def menu():
             print("17. Ver dashboard")
             print("18. Salvar backlog")
             print("19. Sair")
-            print("="*50)
 
             op = input("\nEscolha: ").strip()
 
