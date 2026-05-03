@@ -52,7 +52,7 @@ def menu():
 
             elif op == "2":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     print(f"\nTotal de jogos: {len(lista_jogos)}")
                     print("Primeiros 10 jogos:")
@@ -61,7 +61,7 @@ def menu():
 
             elif op == "3":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     nome = input("Digite o nome do jogo: ").strip().lower()
                     encontrados = [j for j in lista_jogos if nome in j.titulo.lower()]
@@ -70,11 +70,11 @@ def menu():
                         for jogo in encontrados[:10]:
                             print(f"- {jogo.titulo} ({jogo.console})")
                     else:
-                        print("❌ Nenhum jogo encontrado.")
+                        print("Nenhum jogo encontrado.")
 
             elif op == "4":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     genero = input("Digite o gênero: ").strip()
                     filtrados = [j for j in lista_jogos if j.genero == genero]
@@ -83,11 +83,11 @@ def menu():
                         for jogo in filtrados[:10]:
                             print(f"- {jogo.titulo} ({jogo.console})")
                     else:
-                        print(f"❌ Nenhum jogo encontrado no gênero '{genero}'.")
+                        print(f"Nenhum jogo encontrado no gênero '{genero}'.")
 
             elif op == "5":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     console = input("Digite o console: ").strip()
                     filtrados = [j for j in lista_jogos if j.console == console]
@@ -96,11 +96,11 @@ def menu():
                         for jogo in filtrados[:10]:
                             print(f"- {jogo.titulo} ({jogo.genero})")
                     else:
-                        print(f"❌ Nenhum jogo encontrado para '{console}'.")
+                        print(f"Nenhum jogo encontrado para '{console}'.")
 
             elif op == "6":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     try:
                         nota_min = float(input("Digite a nota mínima: "))
@@ -110,20 +110,20 @@ def menu():
                             for jogo in filtrados[:10]:
                                 print(f"- {jogo.titulo} ({jogo.critic_score})")
                         else:
-                            print(f"❌ Nenhum jogo encontrado com nota >= {nota_min}.")
+                            print(f"Nenhum jogo encontrado com nota >= {nota_min}.")
                     except ValueError:
-                        print("❌ Nota inválida!")
+                        print("Nota inválida!")
 
             elif op == "7":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     lista_jogos.sort(key=lambda j: j.titulo)
                     print("✓ Catálogo ordenado por título!")
 
             elif op == "8":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     titulo = input("Digite o título do jogo: ").strip()
                     jogo = next((j for j in lista_jogos if j.titulo.lower() == titulo.lower()), None)
@@ -132,20 +132,20 @@ def menu():
                             backlog.enqueue(jogo)
                             print(f"✓ '{jogo.titulo}' adicionado ao backlog!")
                         else:
-                            print("❌ Jogo já está no backlog!")
+                            print("Jogo já está no backlog!")
                     else:
-                        print("❌ Jogo não encontrado!")
+                        print("Jogo não encontrado!")
 
             elif op == "9":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     print("\n--- VER BACKLOG ---")
                     backlog.mostrar()
 
             elif op == "10":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     jogo = backlog.dequeue()
                     if jogo:
@@ -154,19 +154,19 @@ def menu():
                         jogo.exibir()
                         print("================\n")
                     else:
-                        print("❌ Backlog vazio! Não há jogos para jogar.")
+                        print("Backlog vazio! Não há jogos para jogar.")
 
             elif op == "11":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     recentes.mostrar()
 
             elif op == "12":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 elif recentes.is_empty():
-                    print("❌ Nenhum jogo recente!")
+                    print("Nenhum jogo recente!")
                 else:
                     jogo = recentes.topo()
                     print("\n==== RETOMANDO ÚLTIMO JOGO ====")
@@ -175,24 +175,24 @@ def menu():
                         tempo = float(input("Tempo jogado: "))
                         registrar_sessao(jogo, tempo, historico, tempo_total)
                     except ValueError:
-                        print("❌ Tempo inválido!")
+                        print("Tempo inválido!")
 
             elif op == "13":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 elif recentes.is_empty():
-                    print("❌ Nenhum jogo recente para registrar!")
+                    print("Nenhum jogo recente para registrar!")
                 else:
                     jogo = recentes.topo()
                     try:
                         tempo = float(input("Tempo jogado: "))
                         registrar_sessao(jogo, tempo, historico, tempo_total)
                     except ValueError:
-                        print("❌ Tempo inválido!")
+                        print("Tempo inválido!")
 
             elif op == "14":
                 if not historico:
-                    print("❌ Histórico vazio!")
+                    print("Histórico vazio!")
                 else:
                     print("\n--- HISTÓRICO COMPLETO ---")
                     for i, sessao in enumerate(historico, 1):
@@ -200,7 +200,7 @@ def menu():
 
             elif op == "15":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     recomendar_jogos(lista_jogos, historico, tempo_total)
 
@@ -209,28 +209,28 @@ def menu():
 
             elif op == "17":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     dashboard(lista_jogos, backlog, recentes, historico, tempo_total)
 
             elif op == "18":
                 if not lista_jogos:
-                    print("❌ Catálogo não carregado!")
+                    print("Catálogo não carregado!")
                 else:
                     with open("backlog.txt", "w", encoding="utf-8") as f:
                         for jogo in backlog.dados:
                             f.write(f"{jogo.titulo},{jogo.console},{jogo.genero}\n")
-                    print("✓ Backlog salvo em 'backlog.txt'!")
+                    print("Backlog salvo em 'backlog.txt'!")
 
             elif op == "19":
                 print("Saindo...")
                 break
             
             else:
-                print("❌ Opção inválida!")
+                print("Opção inválida!")
         
         except Exception as e:
-            print(f"❌ Erro: {e}")
+            print(f"Erro: {e}")
             import traceback
             traceback.print_exc()
 
